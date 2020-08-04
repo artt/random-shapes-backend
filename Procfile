@@ -1,1 +1,1 @@
-web: echo test && ls build && node ./../build/main.js
+web: node ./src/main.js
