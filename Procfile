@@ -1,1 +1,1 @@
-web: echo('test') && node ./build/main.js
+web: echo test && ls && node ./build/main.js
