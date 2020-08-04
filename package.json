@@ -2,22 +2,25 @@
   "name": "random-shapes-api",
   "version": "0.1.0",
   "description": "API for creating random shapes!",
-  "main": "build/main.js",
+  "main": "dist/index.js",
   "source": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "backpack",
-    "build": "backpack build",
-    "heroku-postbuild": "backpack build"
+    "build": "babel src --out-dir dist",
+    "start": "nodemon --exec babel-node src/index.js"
   },
   "author": "artt",
   "license": "MIT",
   "dependencies": {
     "esm": "^3.2.25",
     "express": "^4.17.1",
-    "random-shapes": "^0.1.6"
+    "random-shapes": "^0.1.7"
   },
   "devDependencies": {
-    "backpack-core": "^0.8.4"
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.0",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.11.0",
+    "nodemon": "^2.0.4"
   }
 }

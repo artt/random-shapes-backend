@@ -1,5 +1,5 @@
 import express from 'express'
-import {genBlob, genHLines} from 'random-shapes'
+import {genBlob, genHLines, test} from 'random-shapes'
 
 const app = express()
 
@@ -39,7 +39,6 @@ app.get('/blob', (req, res) => {
 	}
 
 	const {path} = genBlob(opt.size)
-
 	res.setHeader('Content-Type', 'image/svg+xml');
 	res.status(200).send(`
 		<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="${opt.size}" height="${opt.size}">
@@ -48,12 +47,6 @@ app.get('/blob', (req, res) => {
 	`)
 })
 
-app.get('/test', (req, res) => {
-	const r = genHLines(600, 300)
-	console.log(r)
-	res.status(200).send(r[0].curve)
-})
-
 app.listen(3000, () => {
-	console.log('Server started on port 3000s.')
+	console.log('Server started on port 3000.')
 })
