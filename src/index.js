@@ -1,7 +1,6 @@
 const express = require('express')
-// const randomShapes = require('random-shapes')
-// const { genBlob, genHBlobs } = randomShapes
-import { genBlob, genHBlobs } from "random-shapes"
+const randomShapes = require('random-shapes')
+const { genBlob, genHBlobs } = randomShapes
 const cors = require('cors')
 
 const app = express()
