@@ -14,7 +14,7 @@
   "dependencies": {
     "esm": "^3.2.25",
     "express": "^4.17.1",
-    "random-shapes": "^0.1.7"
+    "random-shapes": "^0.2.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
