@@ -1,6 +1,7 @@
 const express = require('express')
-const randomShapes = require('random-shapes')
-const { genBlob, genHBlobs } = randomShapes
+// const randomShapes = require('random-shapes')
+// const { genBlob, genHBlobs } = randomShapes
+import { genBlob, genHBlobs } from "random-shapes"
 const cors = require('cors')
 
 const app = express()
@@ -44,7 +45,6 @@ app.get('/blob', (req, res) => {
   }
 
   const {path} = genBlob(opt.size)
-  console.log([...Array(3).keys()])
   const paths = [...Array(opt.n).keys()].map(() => genBlob(opt.size))
   res.setHeader('Content-Type', 'image/svg+xml');
   res.status(200).send(`
