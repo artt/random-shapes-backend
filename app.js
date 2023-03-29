@@ -1,7 +1,9 @@
 import express from 'express'
-import {genBlob, genHBlobs, genHLines, test} from 'random-shapes'
+import { genBlob, genHBlobs } from 'random-shapes'
+const cors = require('cors')
 
 const app = express()
+app.use(cors())
 
 function objToString(style) {
   const x = Object.entries(style).map(([k, v]) => `${k}="${v}"`).join(' ')
