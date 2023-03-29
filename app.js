@@ -78,9 +78,9 @@ app.get('/blobs', (req, res) => {
 
   Object.keys(defaultOptions).slice(1).forEach(key => {
     if (stringKeys.includes(key))
-      opt[key] = req.query[key]?.split(',') || [defaultOptions[key]]
+      opt[key] = (req.query[key] && req.query[key].split(',')) || [defaultOptions[key]]
     else
-      opt[key] = req.query[key]?.split(',').map(x => parseInt(x)) || [defaultOptions[key]]
+      opt[key] = (req.query[key] && req.query[key].split(',').map(x => parseInt(x))) || [defaultOptions[key]]
   })
 
   const data = genHBlobs(opt.size, opt)
