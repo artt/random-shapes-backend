@@ -13,6 +13,7 @@
   "author": "artt",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
     "esm": "^3.2.25",
     "express": "^4.17.1",
     "random-shapes": "^0.2.3"
