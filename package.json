@@ -2,13 +2,12 @@
   "name": "random-shapes-backend",
   "version": "0.1.0",
   "description": "API for creating random shapes!",
-  "main": "dist/index.js",
-  "source": "src/index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src --out-dir dist",
-    "dev": "nodemon --exec babel-node src/index.js",
-    "start": "node src/index.js"
+    "dev": "nodemon --exec babel-node app.js",
+    "start": "node app.js"
   },
   "author": "artt",
   "license": "MIT",
