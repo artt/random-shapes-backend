@@ -54,7 +54,7 @@ app.get('/blob', (req, res) => {
   
 })
 
-app.get('/blobs', (req, res) => {
+app.get('/blobs.svg', (req, res) => {
 
   const defaultOptions = {
     numBlobs: 1,
