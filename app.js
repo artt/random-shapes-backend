@@ -20,9 +20,13 @@ app.use(cors())
 //     </svg>`)
 // })
 
+// app.get('/', (req, res) => {
+//   res.setHeader('Content-Type', 'text/plain');
+//   res.status(200).send(`Hello World!`)
+// })
+
 app.get('/', (req, res) => {
-  res.setHeader('Content-Type', 'text/plain');
-  res.status(200).send(`Hello World!`)
+  res.send('Greetings from DLT-QMe Server! Hi!')
 })
 
 // app.get('/blob', (req, res) => {
