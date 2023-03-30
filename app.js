@@ -6,11 +6,11 @@ const cors = require('cors')
 const app = express()
 app.use(cors())
 
-// function objToString(style) {
-//   const x = Object.entries(style).map(([k, v]) => `${k}="${v}"`).join(' ')
-//   // return x.replace(/[A-Z]/g, match => `-${match.toLowerCase()}`)
-//   return x
-// }
+function objToString(style) {
+  const x = Object.entries(style).map(([k, v]) => `${k}="${v}"`).join(' ')
+  // return x.replace(/[A-Z]/g, match => `-${match.toLowerCase()}`)
+  return x
+}
 
 app.get('/', (req, res) => {
   res.setHeader('Content-Type', 'image/svg+xml');
@@ -20,43 +20,39 @@ app.get('/', (req, res) => {
     </svg>`)
 })
 
-// app.get('/', (req, res) => {
-//   res.send('Greetings from DLT-QMe Server! Hi!')
-// })
+app.get('/blob', (req, res) => {
 
-// app.get('/blob', (req, res) => {
+  const opt = {
+    size: 500,
+    segments: 8,
+    fill: "teal",
+    fillOpacity: 1,
+    stroke: "blue",
+    strokeWidth: 3,
+    strokeOpacity: 1,
+    strokeDasharray: "0",
+    ...req.query
+  }
 
-//   const opt = {
-//     size: 500,
-//     segments: 8,
-//     fill: "teal",
-//     fillOpacity: 1,
-//     stroke: "blue",
-//     strokeWidth: 3,
-//     strokeOpacity: 1,
-//     strokeDasharray: "0",
-//     ...req.query
-//   }
+  const style = {
+    fill: opt.fill,
+    fillOpacity: opt.fillOpacity,
+    stroke: opt.stroke,
+    strokeWidth: opt.strokeWidth,
+    strokeOpacity: opt.strokeOpacity,
+    strokeDasharray: opt.strokeDasharray
+  }
 
-//   const style = {
-//     fill: opt.fill,
-//     fillOpacity: opt.fillOpacity,
-//     stroke: opt.stroke,
-//     strokeWidth: opt.strokeWidth,
-//     strokeOpacity: opt.strokeOpacity,
-//     strokeDasharray: opt.strokeDasharray
-//   }
-
-//   const {path} = genBlob(opt.size)
-//   const paths = [...Array(opt.n).keys()].map(() => genBlob(opt.size))
-//   res.setHeader('Content-Type', 'image/svg+xml');
-//   res.status(200).send(`
-//     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="${opt.size}" height="${opt.size}">
-//       <path d="${path}" ${objToString(style)} />
-//     </svg>
-//   `)
+  const {path} = genBlob(opt.size)
+  const paths = [...Array(opt.n).keys()].map(() => genBlob(opt.size))
+  res.setHeader('Content-Type', 'image/svg+xml');
+  res.status(200).send(`
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="${opt.size}" height="${opt.size}">
+      <path d="${path}" ${objToString(style)} />
+    </svg>
+  `)
   
-// })
+})
 
 // app.get('/blobs', (req, res) => {
 
