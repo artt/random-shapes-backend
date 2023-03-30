@@ -12,17 +12,12 @@ app.use(cors())
 //   return x
 // }
 
-// app.get('/', (req, res) => {
-//   res.setHeader('Content-Type', 'image/svg+xml');
-//   res.status(200).send(`
-//     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="600" height="300">
-//       <path d="M 0 140.16 C 289.48 220.21, 328.47 297.40, 600.00 169.02 " class="" style="fill: transparent; stroke: black;"></path>
-//     </svg>`)
-// })
-
 app.get('/', (req, res) => {
-  res.setHeader('Content-Type', 'text/plain');
-  res.status(200).send(`Hello World!`)
+  res.setHeader('Content-Type', 'image/svg+xml');
+  res.status(200).send(`
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="600" height="300">
+      <path d="M 0 140.16 C 289.48 220.21, 328.47 297.40, 600.00 169.02 " class="" style="fill: transparent; stroke: black;"></path>
+    </svg>`)
 })
 
 // app.get('/', (req, res) => {
