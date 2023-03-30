@@ -1,23 +1,28 @@
 const express = require('express')
-const randomShapes = require('random-shapes')
-const { genBlob, genHBlobs } = randomShapes
+// const randomShapes = require('random-shapes')
+// const { genBlob, genHBlobs } = randomShapes
 const cors = require('cors')
 
 const app = express()
 app.use(cors())
 
-function objToString(style) {
-  const x = Object.entries(style).map(([k, v]) => `${k}="${v}"`).join(' ')
-  // return x.replace(/[A-Z]/g, match => `-${match.toLowerCase()}`)
-  return x
-}
+// function objToString(style) {
+//   const x = Object.entries(style).map(([k, v]) => `${k}="${v}"`).join(' ')
+//   // return x.replace(/[A-Z]/g, match => `-${match.toLowerCase()}`)
+//   return x
+// }
+
+// app.get('/', (req, res) => {
+//   res.setHeader('Content-Type', 'image/svg+xml');
+//   res.status(200).send(`
+//     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="600" height="300">
+//       <path d="M 0 140.16 C 289.48 220.21, 328.47 297.40, 600.00 169.02 " class="" style="fill: transparent; stroke: black;"></path>
+//     </svg>`)
+// })
 
 app.get('/', (req, res) => {
-  res.setHeader('Content-Type', 'image/svg+xml');
-  res.status(200).send(`
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="600" height="300">
-      <path d="M 0 140.16 C 289.48 220.21, 328.47 297.40, 600.00 169.02 " class="" style="fill: transparent; stroke: black;"></path>
-    </svg>`)
+  res.setHeader('Content-Type', 'text/plain');
+  res.status(200).send(`Hello World!`)
 })
 
 // app.get('/blob', (req, res) => {
@@ -100,6 +105,7 @@ app.get('/', (req, res) => {
 
 // })
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log('Server started on port 3000.')
+const port = process.env.PORT || 80
+app.listen(port, () => {
+  console.log(`Server started on port ${port}.`)
 })
